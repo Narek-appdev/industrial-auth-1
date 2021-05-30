@@ -10,7 +10,7 @@
   </div>
 </div>
 
-<% if current_user == @user || @user.followers.exists?(username: current_user.username)%>
+<% if current_user == @user || @user.private != true || @user.followers.exists?(username: current_user.username)%>
   <% @user.liked_photos.each do |photo| %>
     <div class="row mb-4">
       <div class="col-md-6 offset-md-3">
